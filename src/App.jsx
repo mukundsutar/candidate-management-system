@@ -21,7 +21,8 @@ function App() {
                     }
                 />
 
-                <Route path="/home" element={<HomePage />} />
+                <Route path="/candidate" element={<HomePage />} />
+                <Route path="/candidate/*" element={<HomePage />} />
             </Routes>
         </>
     );

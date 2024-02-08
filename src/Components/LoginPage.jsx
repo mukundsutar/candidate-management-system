@@ -27,7 +27,7 @@ export default function LoginPage() {
                 />
 
                 {/* submit button */}
-                <NavLink to="/home">
+                <NavLink to="/candidate">
                     <input
                         id="login-submit"
                         className="login-ele login-btn"
@@ -47,25 +47,25 @@ export default function LoginPage() {
                 <div className="social-login">
                     <button type="button">
                         <i
-                            class="bi bi-google"
+                            className="bi bi-google"
                             style={{ fontSize: "2rem" }}
                         ></i>
                     </button>
                     <button type="button">
                         <i
-                            class="bi bi-linkedin"
+                            className="bi bi-linkedin"
                             style={{ fontSize: "2rem" }}
                         ></i>
                     </button>
                     <button type="button">
                         <i
-                            class="bi bi-facebook"
+                            className="bi bi-facebook"
                             style={{ fontSize: "2rem" }}
                         ></i>
                     </button>
                     <button type="button">
                         <i
-                            class="bi bi-github"
+                            className="bi bi-github"
                             style={{ fontSize: "2rem" }}
                         ></i>
                     </button>

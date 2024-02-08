@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/candidate-profile.css";
+import { useAtom } from "jotai";
+import { candID } from "./CandidateList";
 
-export default function CandidateProfile() {
+export default function CandidateProfile({ apiData }) {
+    const [candidateId] = useAtom(candID);
+    const [candidate, setCandidate] = useState();
+
+    useEffect(() => {
+        console.log(candidateId);
+        console.log(apiData);
+        // Fetch candidate details by ID and set the state
+        const fetchedCandidate = apiData.find(
+            (candidate) => candidate.id === candidateId
+        );
+
+        setCandidate(fetchedCandidate);
+    }, [apiData]);
+
     // education
     const edu = [
         "University A",
@@ -119,12 +135,14 @@ export default function CandidateProfile() {
                         srcSet=""
                     />
 
-                    <div className="personal-text">
-                        <p>Name</p>
-                        <p>Email</p>
-                        <p>Gender</p>
-                        <p>Hobbies</p>
-                    </div>
+                    {candidate && (
+                        <div className="personal-text">
+                            <p>{candidate.name}</p>
+                            <p>{candidate.email}</p>
+                            <p>Gender</p>
+                            <p>Hobbies</p>
+                        </div>
+                    )}
                 </div>
 
                 {/* education */}

@@ -1,44 +1,35 @@
 import React from "react";
+import profilePhoto from "../assets/person-bounding-box.svg";
+import { NavLink } from "react-router-dom";
+import { atom, useAtom } from "jotai";
 
-export default function CandidateList() {
-    const items = [
-        "Mukund",
-        "Darshan",
-        "Tanmay",
-        "Sharma",
-        "Hrithik",
-        "Chetan",
-        "Rohan",
-    ];
-    const skills = [
-        "React",
-        "Java",
-        "Express",
-        "Python",
-        "Git",
-        "MongoDB",
-        "C",
-    ];
+export const candID = atom("236");
 
-    const combined = items.map((item, index) => [item, skills[index]]);
+export default function CandidateList({ apiData }) {
+    const [candidateId, setCandidateId] = useAtom(candID);
 
     return (
         <>
-            {/* left side */}
             <div className="cadidate-list">
-                {combined.map((pair, index) => (
-                    <div className="list-item" key={index}>
-                        <img
-                            src="https://via.placeholder.com/600/92c952"
-                            alt=""
-                            srcSet=""
-                        />
-                        <div className="list-item-text">
-                            <p>{pair[0]}</p>
-                            <p>{pair[1]}</p>
-                        </div>
-                    </div>
-                ))}
+                {apiData &&
+                    apiData.map((candidate, index) => (
+                        <NavLink
+                            to={"/candidate/" + candidate.id}
+                            onClick={() => setCandidateId(candidate.id)}
+                            key={index}
+                        >
+                            <div className="list-item">
+                                <img src={profilePhoto} alt="" srcSet="" />
+                                <div className="list-item-text">
+                                    <p>{candidate.name}</p>
+                                    <p>
+                                        ID
+                                        {candidate.id}
+                                    </p>
+                                </div>
+                            </div>
+                        </NavLink>
+                    ))}
             </div>
         </>
     );
