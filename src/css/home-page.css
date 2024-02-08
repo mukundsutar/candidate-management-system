@@ -1,0 +1,93 @@
+.cadidate-container {
+    width: 100svw;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: darksalmon;
+}
+
+.cadidate-list {
+    width: 50svw;
+    height: auto;
+    max-height: calc(100vh - 100px); 
+
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    background-color: aquamarine;
+}
+
+.profile {
+    width: 50svw;
+    height: 100svh;
+    max-width: 50svw;
+
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    background-color: aqua;
+}
+
+.list-header {
+    position: sticky;
+    top: 0;
+
+    width: 100svw;
+    min-height: 100px;
+    max-height: 100px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    overflow-y: hidden;
+
+    padding: 0px 10%;
+
+    background-color: coral; /* Adjust as per your design */
+    z-index: 1;
+}
+
+.list-item {
+    height: 150px;
+
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+
+    margin: 10px 75px;
+    padding: 20px;
+}
+
+.list-item img {
+    height: 100%;
+}
+
+.list-item-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin-left: 10%;
+}
+
+.list-item-text p {
+    margin: 0px;
+}
+
+.list-header button {
+    height: 50px;
+    width: 50px;
+
+    border-radius: 10px;
+}
+
+.list-header .login-page-btn {
+    width: 100px;
+}

@@ -1,0 +1,91 @@
+.profile {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 100px);
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.profile-ele {
+    height: max-content;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+
+    margin: 5% 0px;
+    margin-bottom: 0px;
+    padding: 3% 10%;
+
+    background-color: bisque;
+}
+
+.personal {
+    margin-top: 0px;
+}
+
+.profile img {
+    height: 200px;
+    width: 200px;
+}
+
+.personal-text {
+    width: max-content;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 10%;
+}
+
+.education, .skill, .company {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.education-text, .skill-text, .company-text {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.company-text{
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 5%;
+
+    background-color: burlywood;
+}
+
+.company-text p{
+    margin: 0px;
+}
+
+.modify-buttons{
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    box-sizing: border-box;
+
+    margin: 1% 0px;
+    padding: 0px 5%;
+}
+
+.modify-buttons button{
+    height: 50px;
+    width: 50px;
+
+    margin-left: 10%;
+}
