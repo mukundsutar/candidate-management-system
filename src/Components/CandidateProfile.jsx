@@ -40,7 +40,7 @@ export default function CandidateProfile({ apiData }) {
                         }`}
 
                     {/* if there is no pass-out year */}
-                    {education.pass_out_year == "" && `Records missing`}
+                    {education.pass_out_year == "" && "-"}
                 </p>
             </div>
         ));
@@ -58,7 +58,7 @@ export default function CandidateProfile({ apiData }) {
                             <p>
                                 {skill.experience
                                     ? `${skill.experience}m`
-                                    : "Records missing"}
+                                    : "-"}
                             </p>
                         </div>
                     );
@@ -67,7 +67,7 @@ export default function CandidateProfile({ apiData }) {
                     return (
                         <div className="skill-text" key={index}>
                             <p>{skill}</p>
-                            <p>Records missing</p>
+                            <p>-</p>
                         </div>
                     );
                 } else {
@@ -85,123 +85,40 @@ export default function CandidateProfile({ apiData }) {
         return candidate.experience.map((experience, index) => (
             <div className="experience-text" key={index}>
                 {/* Company Name */}
-                <p>{experience.name}</p>
+                <p className="companyName">
+                    {experience.company != ""
+                        ? experience.company
+                        : "-"}
+                </p>
 
                 {/* Project  Name*/}
                 <p>
                     {experience.project != "" && experience.project}
 
-                    
-                    {experience.project == "" && "Records missing"}
+                    {experience.project == "" && "-"}
                 </p>
 
                 {/* Role */}
                 <p>
                     {experience.role != "" && experience.role}
 
-                    
-                    {experience.role == "" && "Records missing"}
+                    {experience.role == "" && "-"}
                 </p>
 
                 {/* Duration */}
                 <p>
                     {experience.duration_from && experience.duration_to ? (
                         <p>
-                            Duration: {experience.duration_from} to {experience.duration_to}
+                            Duration: {experience.duration_from} -{" "}
+                            {experience.duration_to}
                         </p>
                     ) : (
-                        <p>Duration: Records missing</p>
+                        <p>Duration: -</p>
                     )}
                 </p>
             </div>
         ));
     };
-
-    // education
-    const edu = [
-        "University A",
-        "University B",
-        "University C",
-        "University D",
-        "University E",
-        "University F",
-    ];
-
-    const eduYear = [
-        "2015 - 2019",
-        "2016 - 2020",
-        "2017 - 2021",
-        "2018 - 2022",
-        "2019 - 2023",
-        "2020 - 2024",
-    ];
-
-    const eduCombined = edu.map((item, index) => [item, eduYear[index]]);
-
-    // skill
-    const skill = [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "React",
-        "Node.js",
-        "Express.js",
-    ];
-
-    const skillMonth = [
-        "6 months",
-        "1 year",
-        "2 years",
-        "1.5 years",
-        "1 year",
-        "9 months",
-    ];
-
-    const skillCombined = skill.map((item, index) => [item, skillMonth[index]]);
-
-    // company
-    const companyName = [
-        "Company A",
-        "Company B",
-        "Company C",
-        "Company D",
-        "Company E",
-        "Company F",
-    ];
-
-    const projectName = [
-        "Project 1",
-        "Project 2",
-        "Project 3",
-        "Project 4",
-        "Project 5",
-        "Project 6",
-    ];
-
-    const companyRole = [
-        "Developer",
-        "Designer",
-        "Project Manager",
-        "QA Engineer",
-        "DevOps Engineer",
-        "Business Analyst",
-    ];
-
-    const duration = [
-        "6 months",
-        "1 year",
-        "9 months",
-        "2 years",
-        "1.5 years",
-        "1 year",
-    ];
-
-    const companyCombined = companyName.map((name, index) => ({
-        name,
-        project: projectName[index],
-        role: companyRole[index],
-        duration: duration[index],
-    }));
 
     return (
         <>

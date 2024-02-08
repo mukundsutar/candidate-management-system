@@ -96,3 +96,8 @@
 .list-header .login-page-btn {
     width: 100px;
 }
+
+.cadidate-list a {
+    text-decoration: none;
+    color: aliceblue;
+}

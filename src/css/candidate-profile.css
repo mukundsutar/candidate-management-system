@@ -43,14 +43,18 @@
     margin-left: 10%;
 }
 
-.education, .skill, .experience {
+.education,
+.skill,
+.experience {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
 }
 
-.education-text, .skill-text, .experience-text {
+.education-text,
+.skill-text,
+.experience-text {
     width: 100%;
 
     display: flex;
@@ -60,7 +64,7 @@
     text-transform: capitalize;
 }
 
-.experience-text{
+.experience-text {
     display: flex;
     flex-direction: column;
 
@@ -69,13 +73,13 @@
     background-color: burlywood;
 }
 
-.experience-text p{
+.experience-text p {
     margin: 0px;
 }
 
-.modify-buttons{
+.modify-buttons {
     width: 100%;
-    
+
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -85,9 +89,13 @@
     padding: 0px 5%;
 }
 
-.modify-buttons button{
+.modify-buttons button {
     height: 50px;
     width: 50px;
 
     margin-left: 10%;
+}
+
+.companyName {
+    text-transform: capitalize;
 }

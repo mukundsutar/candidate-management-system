@@ -21,10 +21,10 @@ export default function CandidateList({ apiData }) {
                             <div className="list-item">
                                 <img src={profilePhoto} alt="" srcSet="" />
                                 <div className="list-item-text">
-                                    <p>{candidate.name}</p>
+                                    <p>{candidate.name!=""?candidate.name:"-"}</p>
                                     <p>
                                         ID
-                                        {candidate.id}
+                                        {candidate.id!=""?candidate.id:"-"}
                                     </p>
                                 </div>
                             </div>
