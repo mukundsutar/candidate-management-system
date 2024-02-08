@@ -43,22 +43,24 @@
     margin-left: 10%;
 }
 
-.education, .skill, .company {
+.education, .skill, .experience {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
 }
 
-.education-text, .skill-text, .company-text {
+.education-text, .skill-text, .experience-text {
     width: 100%;
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    text-transform: capitalize;
 }
 
-.company-text{
+.experience-text{
     display: flex;
     flex-direction: column;
 
@@ -67,7 +69,7 @@
     background-color: burlywood;
 }
 
-.company-text p{
+.experience-text p{
     margin: 0px;
 }
 
