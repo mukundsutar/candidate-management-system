@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/candidate-management-system/static/css/main.dd958b22.css",
-    "main.js": "/candidate-management-system/static/js/main.b3835596.js",
+    "main.css": "/candidate-management-system/static/css/main.7b541c05.css",
+    "main.js": "/candidate-management-system/static/js/main.a5ee4b09.js",
     "static/media/pfp.jpg": "/candidate-management-system/static/media/pfp.e1b78240a2327ee3c2f1.jpg",
     "static/media/bootstrap-icons.woff?": "/candidate-management-system/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
     "static/media/bootstrap-icons.woff2?": "/candidate-management-system/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
     "index.html": "/candidate-management-system/index.html",
     "static/media/person-bounding-box.svg": "/candidate-management-system/static/media/person-bounding-box.a4bc5a393dc2742ff44fe4cc6899126e.svg",
-    "main.dd958b22.css.map": "/candidate-management-system/static/css/main.dd958b22.css.map",
-    "main.b3835596.js.map": "/candidate-management-system/static/js/main.b3835596.js.map"
+    "main.7b541c05.css.map": "/candidate-management-system/static/css/main.7b541c05.css.map",
+    "main.a5ee4b09.js.map": "/candidate-management-system/static/js/main.a5ee4b09.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd958b22.css",
-    "static/js/main.b3835596.js"
+    "static/css/main.7b541c05.css",
+    "static/js/main.a5ee4b09.js"
   ]
 }
