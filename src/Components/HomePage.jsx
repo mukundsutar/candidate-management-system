@@ -8,6 +8,7 @@ import CandidateAddNew from "./CandidateAddNew";
 import MaterialRight from "./MaterialRight";
 import MaterialLeft from "./MaterialLeft";
 import CandidateEdit from "./CandidateEdit";
+import MediaQuery, { useMediaQuery } from "react-responsive";
 
 export default function HomePage({ newFlag, candEditFlag }) {
     const [apiData, setAPIData] = useState([]);
@@ -32,9 +33,11 @@ export default function HomePage({ newFlag, candEditFlag }) {
 
     return (
         <>
-            <Header />
+            <Header apiData={apiData} />
             <div className="cadidate-container">
-                <CandidateList apiData={apiData} />
+                <MediaQuery minWidth={1224}>
+                    <CandidateList apiData={apiData} />
+                </MediaQuery>
 
                 {newFlag ? (
                     <CandidateAddNew />

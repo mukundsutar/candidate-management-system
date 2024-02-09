@@ -2,7 +2,9 @@ import React from "react";
 import profilePhoto from "../assets/person-bounding-box.svg";
 import { NavLink } from "react-router-dom";
 import { atom, useAtom } from "jotai";
-import { Button } from "@mui/material";
+import { Avatar, Box, Button, Card, Typography } from "@mui/material";
+import MediaQuery from "react-responsive";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export const candID = atom("236");
 
@@ -17,8 +19,8 @@ export default function CandidateList({ apiData }) {
                     {/* <button className="add-btn" type="button">
                         Add new Candidate
                     </button> */}
-                    <Button variant="contained" color="success">
-                        Add new Candidate
+                    <Button variant="contained">
+                        Add more
                     </Button>
                 </NavLink>
 
@@ -29,31 +31,120 @@ export default function CandidateList({ apiData }) {
                             onClick={() => setCandidateId(candidate.id)}
                             key={index}
                         >
-                            <div className="list-item">
-                                {/* <img src={profilePhoto} alt="" srcSet="" /> */}
-                                {candidate.profile_picture ? (
-                                    <img
-                                        src={candidate.profile_picture}
-                                        alt=""
-                                        srcSet=""
+                            <MediaQuery minWidth={1224}>
+                                <Card
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        mb: 4,
+                                        p: 4,
+                                        borderRadius: 5,
+                                    }}
+                                >
+                                    {candidate.profile_picture ? (
+                                        <Avatar
+                                            variant="rounded"
+                                            alt="Remy Sharp"
+                                            src={candidate.profile_picture}
+                                            sx={{
+                                                height: "100%",
+                                                width: "26%",
+                                                borderRadius: 4,
+                                            }}
+                                        />
+                                    ) : (
+                                        <Avatar
+                                            variant="rounded"
+                                            alt="Remy Sharp"
+                                            src={profilePhoto}
+                                            sx={{
+                                                height: "100%",
+                                                width: "26%",
+                                                borderRadius: 4,
+                                            }}
+                                        />
+                                    )}
+
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "center",
+                                            alignContent: "center",
+                                            ml: 7,
+                                            width: "50%",
+                                        }}
+                                    >
+                                        {candidate.name != "" ? (
+                                            <Typography variant="h3">
+                                                {candidate.name}
+                                            </Typography>
+                                        ) : (
+                                            "-"
+                                        )}
+                                        {candidate.name != "" ? (
+                                            <Typography variant="h4">
+                                                {"ID" + candidate.id}
+                                            </Typography>
+                                        ) : (
+                                            "-"
+                                        )}
+                                    </Box>
+                                </Card>
+                            </MediaQuery>
+
+                            {/* resposive */}
+                            <MediaQuery maxWidth={1224}>
+                                <Card
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        mb: 4,
+                                        p: 2,
+                                        borderRadius: 5,
+                                    }}
+                                >
+                                    <Avatar
+                                        variant="rounded"
+                                        alt="Remy Sharp"
+                                        src={
+                                            candidate.profile_picture
+                                                ? candidate.profile_picture
+                                                : profilePhoto
+                                        }
+                                        sx={{
+                                            height: "100%",
+                                            width: "30%",
+                                        }}
                                     />
-                                ) : (
-                                    <img src={profilePhoto} alt="" srcSet="" />
-                                )}
-                                <div className="list-item-text">
-                                    <p className="list-name">
-                                        {candidate.name != ""
-                                            ? candidate.name
-                                            : "-"}
-                                    </p>
-                                    <p>
-                                        ID
-                                        {candidate.id != ""
-                                            ? candidate.id
-                                            : "-"}
-                                    </p>
-                                </div>
-                            </div>
+
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "center",
+                                            alignContent: "center",
+                                            mt: 1,
+                                            width: "50%",
+                                        }}
+                                    >
+                                        {candidate.name != "" ? (
+                                            <Typography variant="h5">
+                                                {candidate.name}
+                                            </Typography>
+                                        ) : (
+                                            "-"
+                                        )}
+                                        {candidate.name != "" ? (
+                                            <Typography variant="h6">
+                                                {"ID" + candidate.id}
+                                            </Typography>
+                                        ) : (
+                                            "-"
+                                        )}
+                                    </Box>
+                                </Card>
+                            </MediaQuery>
                         </NavLink>
                     ))}
             </div>

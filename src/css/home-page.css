@@ -49,7 +49,7 @@
     box-sizing: border-box;
     overflow-y: hidden;
 
-    /* padding: 0px 10%; */
+    padding: 0px 3.5%;
 
     background-color: #191716;
     z-index: 1;
@@ -63,7 +63,7 @@
     flex-direction: row;
     box-sizing: border-box;
 
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
     padding: 20px;
 
     background-color: #3d348b;
@@ -123,3 +123,36 @@
     font-weight: bold;
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 1224px) {
+    .candidate-list {
+        width: 66svw !important;
+    }
+
+    .candidate-list a {
+        width: 10%;
+    }
+
+    .profile {
+        width: 100svw;
+        max-width: 100svw;
+    }
+
+    div.profile-ele:nth-child(2) {
+        margin-top: 20px;
+    }
+
+    .personal-text {
+        max-height: 100px;
+    }
+
+    .personal-text p {
+        margin: 0px;
+    }
+
+    .profile img {
+        height: 100px !important;
+        width: 100px !important;
+    }
+}
+
