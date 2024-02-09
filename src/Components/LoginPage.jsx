@@ -1,44 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/login-page.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { NavLink } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import {
     Box,
     Button,
     ButtonGroup,
-    CardActions,
     CardContent,
     TextField,
     Typography,
 } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
 import GoogleIcon from "@mui/icons-material/Google";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            light: "#757ce8",
-            main: "#3f50b5",
-            dark: "#002884",
-            contrastText: "#fff",
-        },
-        secondary: {
-            light: "#ff7961",
-            main: "#f44336",
-            dark: "#ba000d",
-            contrastText: "#000",
-        },
-    },
-});
-
 export default function LoginPage() {
+    const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+        userID: "",
+        password: "",
+    });
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Prevent default form submission behavior
+
+        const userList = [
+            { userID: "mukund", password: "123" },
+            { userID: "user", password: "pass" },
+            { userID: "123", password: "123" },
+        ];
+
+        const user = userList.find(
+            (user) =>
+                user.userID === formData.userID &&
+                user.password === formData.password
+        );
+
+        if (user) {
+            console.log("Login successful");
+            navigate("/candidate");
+        } else {
+            console.log("Invalid userID or password");
+        }
+    };
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
     return (
         <>
             <Card
                 sx={{
+                    width: 300,
                     minWidth: 275,
                     backgroundColor: "#beb7a4",
                     // color: "aliceblue",
@@ -48,17 +65,26 @@ export default function LoginPage() {
                     <Typography variant="h4" gutterBottom sx={{ m: 4 }}>
                         Login Here...
                     </Typography>
-                    <TextField
-                        id="outlined-basic"
-                        label="UserID"
-                        variant="outlined"
-                        sx={{ mb: 2 }}
-                    />
-                    <TextField
-                        id="outlined-basic"
-                        label="Password"
-                        variant="outlined"
-                    />
+                    <form className="loginForm" action="">
+                        <TextField
+                            id="userID"
+                            name="userID"
+                            label="UserID"
+                            variant="outlined"
+                            value={formData.userID}
+                            onChange={handleInputChange}
+                            sx={{ mb: 2 }}
+                        />
+                        <TextField
+                            id="password"
+                            name="password"
+                            label="Password"
+                            type="password"
+                            variant="outlined"
+                            value={formData.password}
+                            onChange={handleInputChange}
+                        />
+                    </form>
 
                     <Box
                         sx={{
@@ -71,7 +97,7 @@ export default function LoginPage() {
                             variant="contained"
                             aria-label="Basic button group"
                         >
-                            <Button>Submit</Button>
+                            <Button onClick={handleSubmit}>Submit</Button>
                             <Button color="error">Register</Button>
                         </ButtonGroup>
                     </Box>

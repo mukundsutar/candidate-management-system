@@ -17,8 +17,8 @@ export default function CandidateList({ apiData }) {
                     {/* <button className="add-btn" type="button">
                         Add new Candidate
                     </button> */}
-                    <Button variant='contained'>
-                    Add new Candidate
+                    <Button variant="contained" color="success">
+                        Add new Candidate
                     </Button>
                 </NavLink>
 
@@ -30,14 +30,23 @@ export default function CandidateList({ apiData }) {
                             key={index}
                         >
                             <div className="list-item">
-                                <img src={profilePhoto} alt="" srcSet="" />
+                                {/* <img src={profilePhoto} alt="" srcSet="" /> */}
+                                {candidate.profile_picture ? (
+                                    <img
+                                        src={candidate.profile_picture}
+                                        alt=""
+                                        srcSet=""
+                                    />
+                                ) : (
+                                    <img src={profilePhoto} alt="" srcSet="" />
+                                )}
                                 <div className="list-item-text">
                                     <p className="list-name">
                                         {candidate.name != ""
                                             ? candidate.name
                                             : "-"}
                                     </p>
-                                    <p >
+                                    <p>
                                         ID
                                         {candidate.id != ""
                                             ? candidate.id

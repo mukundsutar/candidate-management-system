@@ -11,7 +11,7 @@
 .cadidate-list {
     width: 50svw;
     height: auto;
-    max-height: calc(100vh - 50px);
+    max-height: calc(100vh - 60px);
 
     display: flex;
     flex-direction: column;
@@ -40,8 +40,8 @@
     top: 0;
 
     width: 100svw;
-    max-height: 50px;
-    min-height: 50px;
+    max-height: 60px;
+    min-height: 60px;
 
     display: flex;
     justify-content: space-between;
@@ -49,7 +49,7 @@
     box-sizing: border-box;
     overflow-y: hidden;
 
-    padding: 0px 10%;
+    /* padding: 0px 10%; */
 
     background-color: #191716;
     z-index: 1;
@@ -104,7 +104,7 @@
 .list-header .login-page-btn {
     width: 100px;
     height: 40px;
-    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 .cadidate-list a {
@@ -116,7 +116,7 @@
 
 #add-btn-link {
     width: max-content;
-    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 .list-name {

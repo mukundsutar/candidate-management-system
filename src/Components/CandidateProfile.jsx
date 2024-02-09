@@ -112,11 +112,11 @@ export default function CandidateProfile({ apiData }) {
                 <p>
                     {experience.duration_from && experience.duration_to ? (
                         <p>
-                            Duration: {experience.duration_from} -{" "}
+                            {experience.duration_from} -{" "}
                             {experience.duration_to}
                         </p>
                     ) : (
-                        <p>Duration: -</p>
+                        <p> -</p>
                     )}
                 </p>
             </div>
@@ -130,7 +130,11 @@ export default function CandidateProfile({ apiData }) {
                 <div className="modify-buttons">
                     {/* edit record */}
                     <NavLink to={"/candidate/" + candidateId + "/edit"}>
-                        <Button sx={{ mb: 1 }} variant="contained">
+                        <Button
+                            sx={{ mb: 1 }}
+                            variant="contained"
+                            color="secondary"
+                        >
                             <EditIcon />
                         </Button>
                     </NavLink>
@@ -139,7 +143,7 @@ export default function CandidateProfile({ apiData }) {
                     {/* edit record */}
 
                     {/* delete record */}
-                    <Button variant="contained">
+                    <Button variant="contained" color="error">
                         <DeleteForeverIcon />
                     </Button>
                 </div>
@@ -169,28 +173,16 @@ export default function CandidateProfile({ apiData }) {
                 {/* education */}
                 <div className="profile-ele education">
                     {candidate && renderEducation()}
-
-                    <button className="education-add" type="button">
-                        <i className="bi bi-plus-lg"></i>
-                    </button>
                 </div>
 
                 {/* skills */}
                 <div className="profile-ele skill">
                     {candidate && renderSkills()}
-
-                    <button className="skill-add" type="button">
-                        <i className="bi bi-plus-lg"></i>
-                    </button>
                 </div>
 
                 {/* experience */}
                 <div className="profile-ele experience">
                     {candidate && renderCompany()}
-
-                    <button className="experience-add" type="button">
-                        <i className="bi bi-plus-lg"></i>
-                    </button>
                 </div>
             </div>
         </>
