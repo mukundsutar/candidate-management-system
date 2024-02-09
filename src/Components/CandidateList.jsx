@@ -12,12 +12,9 @@ export default function CandidateList({ apiData }) {
         <>
             <div className="cadidate-list">
                 {/* add a new candidate */}
-                <NavLink to="/candidate/new">
+                <NavLink to="/candidate/new" id="add-btn-link">
                     <button className="add-btn" type="button">
-                        <i
-                            className="bi bi-plus-lg"
-                            style={{ fontSize: 30 }}
-                        ></i>
+                        Add new Candidate
                     </button>
                 </NavLink>
 

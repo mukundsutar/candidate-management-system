@@ -5,6 +5,8 @@ import CandidateList from "./CandidateList";
 import CandidateProfile from "./CandidateProfile";
 import Header from "./Header";
 import CandidateAddNew from "./CandidateAddNew";
+import MaterialRight from "./MaterialRight";
+import MaterialLeft from "./MaterialLeft";
 
 export default function HomePage({ newFlag }) {
     const [apiData, setAPIData] = useState([]);
@@ -31,12 +33,12 @@ export default function HomePage({ newFlag }) {
         <>
             <Header />
             <div className="cadidate-container">
-                <CandidateList apiData={apiData} />
+                <MaterialLeft apiData={apiData} />
 
                 {newFlag ? (
-                    apiData && <CandidateProfile apiData={apiData} />
+                    apiData && <MaterialRight apiData={apiData} />
                 ) : (
-                    <CandidateAddNew />
+                    <MaterialRight />
                 )}
             </div>
         </>

@@ -90,11 +90,13 @@
 
 .cadidate-list button {
     min-height: 50px;
-    width: 50px;
+    width: max-content;
 
     margin: 25px 0px;
+    padding: 0px 10px;
 
     border-radius: 10px;
+    z-index: 10;
 }
 
 .list-header .login-page-btn {
@@ -106,4 +108,8 @@
 
     text-decoration: none;
     color: aliceblue;
+}
+
+#add-btn-link {
+    width: max-content;
 }

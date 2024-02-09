@@ -1,27 +1,23 @@
 .add-new {
-    width: 50svw;
+    width: 50vw;
     height: auto;
     max-height: calc(100vh - 100px);
-
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
 }
 
 .add-new-ele {
-    height: max-content;
+    height: 12rem; /* Adjust this value as needed */
     width: 100%;
-
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
-
     margin: 5% 0px;
     margin-bottom: 0px;
     padding: 3% 10%;
-
     background-color: bisque;
 }
 
@@ -49,9 +45,18 @@
     margin-left: 10%;
 }
 
-.add-new-personal-text input,
+/* .add-new-personal-text input,
 .add-new-personal-text select {
     height: 2rem;
+} */
+
+.add-new input,
+.add-new select {
+    height: 2rem;
+
+    box-sizing: border-box;
+
+    padding: 0px 1rem;
 }
 
 .add-new-education,
@@ -65,17 +70,17 @@
 
 .add-new-education-text,
 .add-new-skill-text,
-.experience-text {
+.add-new-experience-text {
     width: 100%;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 
     text-transform: capitalize;
 }
 
-.experience-text {
+.add-new-experience-text {
     display: flex;
     flex-direction: column;
 
@@ -84,7 +89,7 @@
     background-color: burlywood;
 }
 
-.experience-text p {
+.add-new-experience-text p {
     margin: 0px;
 }
 
@@ -109,4 +114,59 @@
 
 .companyName {
     text-transform: capitalize;
+}
+
+/* indivisual section height */
+div.add-new-ele:nth-child(3) {
+    height: 12rem;
+}
+
+.add-new-ele button {
+    height: 2rem;
+    width: 2rem;
+
+    margin-top: 1rem;
+
+    border-radius: 2rem;
+}
+
+.add-new-experience {
+    margin-bottom: 0px;
+}
+
+.add-new-education-text input,
+.add-new-skill-text input,
+.add-new-experience-text input {
+    margin-bottom: 1rem;
+}
+
+.add-new-experience-text {
+    margin-bottom: 0px;
+}
+
+.submitDiv {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submitDetails {
+    width: 10rem;
+    height: 3rem;
+
+    font-size: 1.2rem;
+
+    margin: 1rem 0px;
+}
+
+.add-new-education,
+.add-new-skill,
+.add-new-experience {
+    min-height: 17.5em;
+}
+
+.skill-delete {
+    width: 10%;
 }
