@@ -29,14 +29,19 @@ function App() {
 
                 <Route
                     path="/candidate/:candidateId"
-                    element={<HomePage newFlag={true} />}
+                    element={<HomePage candEditFlag={true} />}
+                />
+
+                <Route
+                    path="/candidate/:candidateId/edit"
+                    element={<HomePage newFlag={false} />}
                 />
 
                 <Route
                     path="/candidate/new"
                     element={
                         <>
-                            <HomePage newFlag={false} />
+                            <HomePage newFlag={true} />
                         </>
                     }
                 />

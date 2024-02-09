@@ -8,7 +8,7 @@
 }
 
 .add-new-ele {
-    height: 12rem; /* Adjust this value as needed */
+    /* height: 12rem; */
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -33,7 +33,7 @@
 
 .add-new-personal-text {
     /* width: max-content; */
-    height: 12.5rem;
+    /* height: 12.5rem; */
     /* min-height: 200px; */
 
     display: flex;
@@ -44,11 +44,6 @@
 
     margin-left: 10%;
 }
-
-/* .add-new-personal-text input,
-.add-new-personal-text select {
-    height: 2rem;
-} */
 
 .add-new input,
 .add-new select {
@@ -117,9 +112,6 @@
 }
 
 /* indivisual section height */
-div.add-new-ele:nth-child(3) {
-    height: 12rem;
-}
 
 .add-new-ele button {
     height: 2rem;
@@ -127,7 +119,7 @@ div.add-new-ele:nth-child(3) {
 
     margin-top: 1rem;
 
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
 }
 
 .add-new-experience {
@@ -161,12 +153,48 @@ div.add-new-ele:nth-child(3) {
     margin: 1rem 0px;
 }
 
-.add-new-education,
-.add-new-skill,
-.add-new-experience {
-    min-height: 17.5em;
+.add-new-education
+/* .add-new-skill, */
+/* .add-new-experience */ {
+    /* min-height: 17.5em; */
+    /* height: 100%; */
+}
+
+.add-new-skill {
+    padding: 3% 10%;
+    margin: 5% 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+
+    background-color: bisque;
+}
+
+.add-new-skill-text {
+    margin: 5% 0px;
+    margin-bottom: 0px;
+}
+
+.add-new-ele .add-new-education-text button,
+.add-new-ele .add-new-skill-text button,
+.add-new-ele .add-new-experience-text button {
+    width: 20%;
 }
 
 .skill-delete {
-    width: 10%;
+    width: 20%;
+    height: 2rem;
+}
+
+.add-new-ele {
+    padding-top: 0px;
+}
+
+.add-new-personal,
+.add-new-education-text,
+.add-new-experience-text {
+    padding-top: 3%;
+}
+
+.add-new-personal {
+    height: 500px !important;
 }

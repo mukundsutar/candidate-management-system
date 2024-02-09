@@ -30,8 +30,15 @@ export default function Material() {
                     <Button>Two</Button>
                 </ButtonGroup>
 
-                <Box sx={{ p: 4 }}>
-                    <Box sx={{ display: "flex", flexDirection: "row" }}>
+                {/* main right info */}
+                <Box sx={{height:'100%', p: 4,overflowY: "auto", }}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "row",
+                            
+                        }}
+                    >
                         <Avatar sx={{ width: 200, height: 200 }}>
                             <Person4Icon sx={{ width: 150, height: 150 }} />
                         </Avatar>
@@ -72,16 +79,53 @@ export default function Material() {
                             }}
                         >
                             <Typography variant="h5">College Name</Typography>
+
                             <Typography variant="h5">Year</Typography>
                         </Box>
 
-                        <ButtonGroup
-                            variant="contained"
-                            aria-label="Basic button group"
+                        <Button variant="contained" sx={{ width: "20%" }}>
+                            Add
+                        </Button>
+                    </Box>
+                    <Box
+                        sx={{ display: "flex", flexDirection: "column", p: 4 }}
+                    >
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "space-between",
+                                p: 2,
+                            }}
                         >
-                            <Button>One</Button>
-                            <Button>Two</Button>
-                        </ButtonGroup>
+                            <Typography variant="h5">College Name</Typography>
+
+                            <Typography variant="h5">Year</Typography>
+                        </Box>
+
+                        <Button variant="contained" sx={{ width: "20%" }}>
+                            Add
+                        </Button>
+                    </Box>
+                    <Box
+                        sx={{ display: "flex", flexDirection: "column", p: 4 }}
+                    >
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                                p: 2,
+                            }}
+                        >
+                            <Typography variant="h5">Company Name</Typography>
+
+                            <Typography variant="h5">Year</Typography>
+                        </Box>
+
+                        <Button variant="contained" sx={{ width: "20%" }}>
+                            Add
+                        </Button>
                     </Box>
                 </Box>
             </Box>

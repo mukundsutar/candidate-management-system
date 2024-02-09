@@ -7,8 +7,9 @@ import Header from "./Header";
 import CandidateAddNew from "./CandidateAddNew";
 import MaterialRight from "./MaterialRight";
 import MaterialLeft from "./MaterialLeft";
+import CandidateEdit from "./CandidateEdit";
 
-export default function HomePage({ newFlag }) {
+export default function HomePage({ newFlag, candEditFlag }) {
     const [apiData, setAPIData] = useState([]);
 
     useEffect(() => {
@@ -33,12 +34,14 @@ export default function HomePage({ newFlag }) {
         <>
             <Header />
             <div className="cadidate-container">
-                <MaterialLeft apiData={apiData} />
+                <CandidateList apiData={apiData} />
 
                 {newFlag ? (
-                    apiData && <MaterialRight apiData={apiData} />
+                    <CandidateAddNew />
+                ) : candEditFlag ? (
+                    apiData && <CandidateEdit apiData={apiData} />
                 ) : (
-                    <MaterialRight />
+                    apiData && <CandidateProfile apiData={apiData} />
                 )}
             </div>
         </>

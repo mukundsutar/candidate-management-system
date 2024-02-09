@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/add-new.css";
+import { Button, Divider } from "@mui/material";
 
 export default function CandidateAddNew() {
     const [selectedGender, setSelectedGender] = useState("");
@@ -102,9 +103,7 @@ export default function CandidateAddNew() {
     };
 
     const handleDeleteSkill = (index) => {
-        const updatedSkills = [...skills];
-        updatedSkills.splice(index, 1);
-        setSkills(updatedSkills);
+        setSkills((prevSkills) => prevSkills.filter((_, i) => i !== index));
     };
 
     const handleSkillChange = (index, event) => {
@@ -112,6 +111,54 @@ export default function CandidateAddNew() {
         const updatedSkills = [...skills];
         updatedSkills[index][name] = value;
         setSkills(updatedSkills);
+    };
+
+    const [educations, setEducations] = useState([
+        { institute: "", degree: "", percentage: "", year: "" },
+    ]);
+
+    const handleAddEducation = () => {
+        setEducations([
+            ...educations,
+            { institute: "", degree: "", percentage: "", year: "" },
+        ]);
+    };
+
+    const handleDeleteEducation = (index) => {
+        setEducations((prevEducations) =>
+            prevEducations.filter((_, i) => i !== index)
+        );
+    };
+
+    const handleEducationChange = (index, event) => {
+        const { name, value } = event.target;
+        const updatedEducations = [...educations];
+        updatedEducations[index][name] = value;
+        setEducations(updatedEducations);
+    };
+
+    const [experiences, setExperiences] = useState([
+        { company: "", project: "", role: "", teamSize: "", duration: "" },
+    ]);
+
+    const handleAddExperience = () => {
+        setExperiences([
+            ...experiences,
+            { company: "", project: "", role: "", teamSize: "", duration: "" },
+        ]);
+    };
+
+    const handleDeleteExperience = (index) => {
+        setExperiences((prevExperiences) =>
+            prevExperiences.filter((_, i) => i !== index)
+        );
+    };
+
+    const handleExperienceChange = (index, event) => {
+        const { name, value } = event.target;
+        const updatedExperiences = [...experiences];
+        updatedExperiences[index][name] = value;
+        setExperiences(updatedExperiences);
     };
 
     return (
@@ -190,35 +237,61 @@ export default function CandidateAddNew() {
 
                     {/* education */}
                     <div className="add-new-ele add-new-education">
-                        <div className="add-new-education-text">
-                            <input
-                                type="text"
-                                name="collegeName"
-                                id=""
-                                placeholder="Institute Name"
-                            />
-                            <input
-                                type="text"
-                                name="degreeName"
-                                id=""
-                                placeholder="Degree Name"
-                            />
-                            <input
-                                type="number"
-                                name="percentage"
-                                id=""
-                                placeholder="Percentage"
-                            />
-                            <input
-                                type="text"
-                                name="year"
-                                id=""
-                                placeholder="Year"
-                            />
-                        </div>
-                        <button className="add-new-education-add" type="button">
-                            <i className="bi bi-plus-lg"></i>
-                        </button>
+                        {educations.map((education, index) => (
+                            <div className="add-new-education-text" key={index}>
+                                <input
+                                    type="text"
+                                    name="collegeName"
+                                    value={education.institute}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Institute Name"
+                                />
+                                <input
+                                    type="text"
+                                    name="degreeName"
+                                    value={education.degree}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Degree Name"
+                                />
+                                <input
+                                    type="number"
+                                    name="percentage"
+                                    value={education.percentage}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Percentage"
+                                />
+                                <input
+                                    type="text"
+                                    name="year"
+                                    value={education.year}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Year"
+                                />
+                                <button
+                                    className="education-delete"
+                                    type="button"
+                                    onClick={() => handleDeleteEducation(index)}
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        ))}
+                        <Button
+                            variant="contained"
+                            className="education-add"
+                            type="button"
+                            onClick={() => handleAddEducation()}
+                        >
+                            Add
+                        </Button>
                     </div>
 
                     {/* skills */}
@@ -243,77 +316,90 @@ export default function CandidateAddNew() {
                                     }
                                     placeholder="Experience"
                                 />
-                                <button className="skill-delete"
+                                <button
+                                    className="skill-delete"
                                     type="button"
                                     onClick={() => handleDeleteSkill(index)}
                                 >
                                     Delete
                                 </button>
+                                {/* <Button
+                                    variant="contained"
+                                    onClick={handleDeleteSkill(index)}
+                                >
+                                    Delete
+                                </Button> */}
                             </div>
                         ))}
-                        <button
+                        <Button
+                            variant="contained"
                             className="skill-add"
                             type="button"
-                            onClick={handleAddSkill}
+                            onClick={() => handleAddSkill()}
                         >
-                            Add Skill
-                        </button>
+                            Add
+                        </Button>
                     </div>
 
+                    
                     {/* experience */}
-                    <div className="add-new-ele add-new-experience">
-                        {/* {candidate && renderCompany()} */}
-                        <div className="add-new-experience-text">
-                            {/* Company Name */}
-                            <input
-                                type="text"
-                                name="companyName"
-                                id=""
-                                placeholder="Company Name"
-                            />
-
-                            {/* Project  Name*/}
-                            <input
-                                type="text"
-                                name="projectName"
-                                id=""
-                                placeholder="Project Name"
-                            />
-
-                            {/* Role */}
-                            <input
-                                type="text"
-                                name="Role"
-                                id=""
-                                placeholder="Role"
-                            />
-
-                            {/* Team Size */}
-                            <input
-                                type="number"
-                                name="teamSize"
-                                id=""
-                                placeholder="Team Size"
-                            />
-
-                            {/* Duration */}
-                            <input
-                                type="text"
-                                name="Duration"
-                                id=""
-                                placeholder="Duration to and from"
-                            />
-                        </div>
-
-                        <button className="experience-add" type="button">
-                            <i className="bi bi-plus-lg"></i>
-                        </button>
-                    </div>
-
-                    <div className="submitDiv">
-                        <button className="submitDetails" type="submit">
-                            Save
-                        </button>
+                    <div className="add-new-ele add-new-education">
+                        {educations.map((education, index) => (
+                            <div className="add-new-education-text" key={index}>
+                                <input
+                                    type="text"
+                                    name="collegeName"
+                                    value={education.institute}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Institute Name"
+                                />
+                                <input
+                                    type="text"
+                                    name="degreeName"
+                                    value={education.degree}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Degree Name"
+                                />
+                                <input
+                                    type="number"
+                                    name="percentage"
+                                    value={education.percentage}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Percentage"
+                                />
+                                <input
+                                    type="text"
+                                    name="year"
+                                    value={education.year}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Year"
+                                />
+                                <button
+                                    className="education-delete"
+                                    type="button"
+                                    onClick={() => handleDeleteEducation(index)}
+                                >
+                                    Delete
+                                </button>
+                                {/* <Divider/> */}
+                            </div>
+                        ))}
+                        <Button
+                            variant="contained"
+                            className="education-add"
+                            type="button"
+                            onClick={() => handleAddEducation()}
+                        >
+                            Add
+                        </Button>
                     </div>
                 </div>
             </form>

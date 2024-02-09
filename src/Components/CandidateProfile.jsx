@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/profile.css";
 import { useAtom } from "jotai";
 import { candID } from "./CandidateList";
+import { NavLink } from "react-router-dom";
 
 export default function CandidateProfile({ apiData }) {
     const [candidateId] = useAtom(candID);
@@ -124,12 +125,14 @@ export default function CandidateProfile({ apiData }) {
             <div className="profile">
                 <div className="modify-buttons">
                     {/* edit record */}
-                    <button type="button">
-                        <i
-                            className="bi bi-pencil-fill"
-                            style={{ fontSize: 25 }}
-                        ></i>
-                    </button>
+                    <NavLink to={"/candidate/" + candidateId + "/edit"}>
+                        <button type="button">
+                            <i
+                                className="bi bi-pencil-fill"
+                                style={{ fontSize: 25 }}
+                            ></i>
+                        </button>
+                    </NavLink>
 
                     {/* delete record */}
                     <button type="button">
