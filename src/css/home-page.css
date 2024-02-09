@@ -17,6 +17,8 @@
     flex-direction: column;
     box-sizing: border-box;
     overflow-y: auto;
+    padding: 3%;
+    padding-top: 0px;
 
     background-color: aquamarine;
 }
@@ -61,7 +63,7 @@
     flex-direction: row;
     box-sizing: border-box;
 
-    margin: 10px 75px;
+    margin-bottom: 5%;
     padding: 20px;
 
     background-color: darkcyan;
@@ -86,9 +88,11 @@
     margin: 0px;
 }
 
-.list-header button {
-    height: 50px;
+.cadidate-list button {
+    min-height: 50px;
     width: 50px;
+
+    margin: 25px 0px;
 
     border-radius: 10px;
 }
@@ -98,6 +102,8 @@
 }
 
 .cadidate-list a {
+    width: 100%;
+
     text-decoration: none;
     color: aliceblue;
 }

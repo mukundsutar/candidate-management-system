@@ -1,5 +1,5 @@
-.profile {
-    width: 100%;
+.add-new {
+    width: 50svw;
     height: auto;
     max-height: calc(100vh - 100px);
 
@@ -8,7 +8,7 @@
     overflow-y: scroll;
 }
 
-.profile-ele {
+.add-new-ele {
     height: max-content;
     width: 100%;
 
@@ -25,35 +25,43 @@
     background-color: bisque;
 }
 
-.personal {
+.add-new-personal {
     margin-top: 0px;
+    flex-grow: 1;
+    display: flex; /* Add this line */
+    align-items: stretch;
 }
 
-.profile img {
+.add-new img {
     height: 200px;
     width: 200px;
 }
 
-.personal-text {
-    width: max-content;
+.add-new-personal-text {
+    /* width: max-content; */
+    height: 100%;
+    min-height: 200px;
 
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-grow: 1;
 
     margin-left: 10%;
 }
 
-.education,
-.skill,
-.experience {
+.add-new-education,
+.add-new-skill,
+.add-new-experience {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
 }
 
-.education-text,
-.skill-text,
+.add-new-education-text,
+.add-new-skill-text,
 .experience-text {
     width: 100%;
 
@@ -93,7 +101,7 @@
     height: 50px;
     width: 50px;
 
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 .companyName {

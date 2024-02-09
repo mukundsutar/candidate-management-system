@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../css/candidate-profile.css";
+import "../css/profile.css";
 import { useAtom } from "jotai";
 import { candID } from "./CandidateList";
 

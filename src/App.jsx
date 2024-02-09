@@ -4,6 +4,8 @@ import LoginPage from "./Components/LoginPage";
 import HomePage from "./Components/HomePage";
 
 function App() {
+    const newFlag = false;
+
     return (
         <>
             <Routes>
@@ -22,7 +24,18 @@ function App() {
                 />
 
                 <Route path="/candidate" element={<HomePage />} />
-                <Route path="/candidate/*" element={<HomePage />} />
+                <Route
+                    path="/candidate/*"
+                    element={<HomePage newFlag={newFlag} />}
+                />
+                <Route
+                    path="/candidate/new"
+                    element={
+                        <>
+                            <HomePage newFlag={true} />
+                        </>
+                    }
+                />
             </Routes>
         </>
     );

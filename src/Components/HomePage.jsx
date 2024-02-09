@@ -3,8 +3,10 @@ import "../css/home-page.css";
 import { NavLink } from "react-router-dom";
 import CandidateList from "./CandidateList";
 import CandidateProfile from "./CandidateProfile";
+import Header from "./Header";
+import CandidateAddNew from "./CandidateAddNew";
 
-export default function HomePage({id}) {
+export default function HomePage({ newFlag }) {
     const [apiData, setAPIData] = useState([]);
 
     useEffect(() => {
@@ -27,23 +29,15 @@ export default function HomePage({id}) {
 
     return (
         <>
-            <div className="list-header">
-                {/* add a new candidate */}
-                <button className="add-btn" type="button">
-                    <i className="bi bi-plus-lg" style={{ fontSize: 25 }}></i>
-                </button>
-
-                {/* back to login page */}
-                <NavLink to="/login">
-                    <button className="login-page-btn" type="button">
-                        Back to Login
-                    </button>
-                </NavLink>
-            </div>
+            <Header />
             <div className="cadidate-container">
                 <CandidateList apiData={apiData} />
 
-                {apiData && <CandidateProfile apiData={apiData} />}
+                {newFlag ? (
+                    apiData && <CandidateProfile apiData={apiData} />
+                ) : (
+                    <CandidateAddNew />
+                )}
             </div>
         </>
     );
