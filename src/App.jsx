@@ -2,9 +2,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import LoginPage from "./Components/LoginPage";
 import HomePage from "./Components/HomePage";
+import { useAtom } from "jotai";
+import { candID } from "./Components/CandidateList";
 
 function App() {
-    const newFlag = false;
+    const [candidateId] = useAtom(candID);
 
     return (
         <>
@@ -24,15 +26,17 @@ function App() {
                 />
 
                 <Route path="/candidate" element={<HomePage />} />
+
                 <Route
-                    path="/candidate/*"
-                    element={<HomePage newFlag={newFlag} />}
+                    path="/candidate/:candidateId"
+                    element={<HomePage newFlag={true} />}
                 />
+
                 <Route
                     path="/candidate/new"
                     element={
                         <>
-                            <HomePage newFlag={true} />
+                            <HomePage newFlag={false} />
                         </>
                     }
                 />

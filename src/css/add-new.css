@@ -28,8 +28,6 @@
 .add-new-personal {
     margin-top: 0px;
     flex-grow: 1;
-    display: flex; /* Add this line */
-    align-items: stretch;
 }
 
 .add-new img {
@@ -39,8 +37,8 @@
 
 .add-new-personal-text {
     /* width: max-content; */
-    height: 100%;
-    min-height: 200px;
+    height: 12.5rem;
+    /* min-height: 200px; */
 
     display: flex;
     flex-direction: column;
@@ -49,6 +47,11 @@
     flex-grow: 1;
 
     margin-left: 10%;
+}
+
+.add-new-personal-text input,
+.add-new-personal-text select {
+    height: 2rem;
 }
 
 .add-new-education,

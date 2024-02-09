@@ -86,9 +86,7 @@ export default function CandidateProfile({ apiData }) {
             <div className="experience-text" key={index}>
                 {/* Company Name */}
                 <p className="companyName">
-                    {experience.company != ""
-                        ? experience.company
-                        : "-"}
+                    {experience.company != "" ? experience.company : "-"}
                 </p>
 
                 {/* Project  Name*/}
@@ -145,11 +143,15 @@ export default function CandidateProfile({ apiData }) {
                 {/* personal info */}
                 <div className="profile-ele personal">
                     {/* profile picture */}
-                    <img
-                        src="https://via.placeholder.com/600/92c952"
-                        alt=""
-                        srcSet=""
-                    />
+                    {candidate && candidate.profile_picture ? (
+                        <img src={candidate.profile_picture} alt="" srcSet="" />
+                    ) : (
+                        <img
+                            src="https://via.placeholder.com/600/92c952"
+                            alt=""
+                            srcSet=""
+                        />
+                    )}
 
                     {candidate && (
                         <div className="personal-text">

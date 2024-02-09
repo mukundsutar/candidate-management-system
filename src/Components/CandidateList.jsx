@@ -12,9 +12,14 @@ export default function CandidateList({ apiData }) {
         <>
             <div className="cadidate-list">
                 {/* add a new candidate */}
-                <button className="add-btn" type="button">
-                    <i className="bi bi-plus-lg" style={{ fontSize: 30 }}></i>
-                </button>
+                <NavLink to="/candidate/new">
+                    <button className="add-btn" type="button">
+                        <i
+                            className="bi bi-plus-lg"
+                            style={{ fontSize: 30 }}
+                        ></i>
+                    </button>
+                </NavLink>
 
                 {apiData &&
                     apiData.map((candidate, index) => (
