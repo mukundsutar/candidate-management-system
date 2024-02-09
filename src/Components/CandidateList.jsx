@@ -5,6 +5,7 @@ import { atom, useAtom } from "jotai";
 import { Avatar, Box, Button, Card, Typography } from "@mui/material";
 import MediaQuery from "react-responsive";
 import MenuIcon from "@mui/icons-material/Menu";
+import AddIcon from "@mui/icons-material/Add";
 
 export const candID = atom("236");
 
@@ -16,11 +17,8 @@ export default function CandidateList({ apiData }) {
             <div className="cadidate-list">
                 {/* add a new candidate */}
                 <NavLink to="/candidate/new" id="add-btn-link">
-                    {/* <button className="add-btn" type="button">
-                        Add new Candidate
-                    </button> */}
-                    <Button variant="contained">
-                        Add more
+                    <Button variant="contained" sx={{ m: 0 }}>
+                        <AddIcon />
                     </Button>
                 </NavLink>
 

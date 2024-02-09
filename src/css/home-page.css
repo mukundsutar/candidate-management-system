@@ -133,9 +133,13 @@
         width: 10%;
     }
 
-    .profile {
+    .profile, .add-new {
         width: 100svw;
         max-width: 100svw;
+    }
+
+    .add-new{
+        width: 100svw !important;
     }
 
     div.profile-ele:nth-child(2) {

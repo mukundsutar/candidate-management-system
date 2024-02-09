@@ -13,7 +13,7 @@ export default function CandidateProfile({ apiData }) {
     const [candidate, setCandidate] = useState();
 
     useEffect(() => {
-        console.log(candidateId);
+        // console.log(candidateId);
 
         const fetchedCandidate = apiData.find(
             (candidate) => candidate.id === candidateId
