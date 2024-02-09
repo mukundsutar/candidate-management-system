@@ -2,6 +2,7 @@ import React from "react";
 import profilePhoto from "../assets/person-bounding-box.svg";
 import { NavLink } from "react-router-dom";
 import { atom, useAtom } from "jotai";
+import { Button } from "@mui/material";
 
 export const candID = atom("236");
 
@@ -13,9 +14,12 @@ export default function CandidateList({ apiData }) {
             <div className="cadidate-list">
                 {/* add a new candidate */}
                 <NavLink to="/candidate/new" id="add-btn-link">
-                    <button className="add-btn" type="button">
+                    {/* <button className="add-btn" type="button">
                         Add new Candidate
-                    </button>
+                    </button> */}
+                    <Button variant='contained'>
+                    Add new Candidate
+                    </Button>
                 </NavLink>
 
                 {apiData &&
@@ -28,12 +32,12 @@ export default function CandidateList({ apiData }) {
                             <div className="list-item">
                                 <img src={profilePhoto} alt="" srcSet="" />
                                 <div className="list-item-text">
-                                    <p>
+                                    <p className="list-name">
                                         {candidate.name != ""
                                             ? candidate.name
                                             : "-"}
                                     </p>
-                                    <p>
+                                    <p >
                                         ID
                                         {candidate.id != ""
                                             ? candidate.id

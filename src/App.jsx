@@ -3,7 +3,10 @@ import "./App.css";
 import LoginPage from "./Components/LoginPage";
 import HomePage from "./Components/HomePage";
 import { useAtom } from "jotai";
-import { candID } from "./Components/CandidateList";
+import CandidateList, { candID } from "./Components/CandidateList";
+import CandidateAddNew from "./Components/CandidateAddNew";
+import CandidateEdit from "./Components/CandidateEdit";
+import Header from "./Components/Header";
 
 function App() {
     const [candidateId] = useAtom(candID);
@@ -28,12 +31,16 @@ function App() {
                 <Route path="/candidate" element={<HomePage />} />
 
                 <Route
-                    path="/candidate/:candidateId"
-                    element={<HomePage candEditFlag={true} />}
+                    path="/candidate/:candidateId/edit"
+                    element={
+                        <>
+                            <CandidateEdit />
+                        </>
+                    }
                 />
 
                 <Route
-                    path="/candidate/:candidateId/edit"
+                    path="/candidate/:candidateId"
                     element={<HomePage newFlag={false} />}
                 />
 

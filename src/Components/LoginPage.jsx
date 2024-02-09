@@ -2,75 +2,104 @@ import React from "react";
 import "../css/login-page.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { NavLink } from "react-router-dom";
+import Card from "@mui/material/Card";
+import {
+    Box,
+    Button,
+    ButtonGroup,
+    CardActions,
+    CardContent,
+    TextField,
+    Typography,
+} from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import GoogleIcon from "@mui/icons-material/Google";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            light: "#757ce8",
+            main: "#3f50b5",
+            dark: "#002884",
+            contrastText: "#fff",
+        },
+        secondary: {
+            light: "#ff7961",
+            main: "#f44336",
+            dark: "#ba000d",
+            contrastText: "#000",
+        },
+    },
+});
 
 export default function LoginPage() {
     return (
         <>
-            <div className="login-container">
-                {/* title */}
-                <p className="login-title">Login here...</p>
-
-                {/* userID input box */}
-                <input
-                    className="login-ele login-input"
-                    type="text"
-                    name="userID"
-                    id="userID"
-                />
-
-                {/* password input box */}
-                <input
-                    className="login-ele login-input"
-                    type="text"
-                    name="password"
-                    id="password"
-                />
-
-                {/* submit button */}
-                <NavLink to="/candidate">
-                    <input
-                        id="login-submit"
-                        className="login-ele login-btn"
-                        type="button"
-                        value="submit"
+            <Card
+                sx={{
+                    minWidth: 275,
+                    backgroundColor: "#beb7a4",
+                    // color: "aliceblue",
+                }}
+            >
+                <CardContent sx={{ display: "flex", flexDirection: "column" }}>
+                    <Typography variant="h4" gutterBottom sx={{ m: 4 }}>
+                        Login Here...
+                    </Typography>
+                    <TextField
+                        id="outlined-basic"
+                        label="UserID"
+                        variant="outlined"
+                        sx={{ mb: 2 }}
                     />
-                </NavLink>
+                    <TextField
+                        id="outlined-basic"
+                        label="Password"
+                        variant="outlined"
+                    />
 
-                {/* register button */}
-                <input
-                    className="login-ele login-btn"
-                    type="button"
-                    value="register"
-                />
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "space-evenly",
+                            m: 3,
+                        }}
+                    >
+                        <ButtonGroup
+                            variant="contained"
+                            aria-label="Basic button group"
+                        >
+                            <Button>Submit</Button>
+                            <Button color="error">Register</Button>
+                        </ButtonGroup>
+                    </Box>
 
-                {/* social login buttons */}
-                <div className="social-login">
-                    <button type="button">
-                        <i
-                            className="bi bi-google"
-                            style={{ fontSize: "2rem" }}
-                        ></i>
-                    </button>
-                    <button type="button">
-                        <i
-                            className="bi bi-linkedin"
-                            style={{ fontSize: "2rem" }}
-                        ></i>
-                    </button>
-                    <button type="button">
-                        <i
-                            className="bi bi-facebook"
-                            style={{ fontSize: "2rem" }}
-                        ></i>
-                    </button>
-                    <button type="button">
-                        <i
-                            className="bi bi-github"
-                            style={{ fontSize: "2rem" }}
-                        ></i>
-                    </button>
-                </div>
-            </div>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "space-evenly",
+                            m: 0,
+                        }}
+                    >
+                        <ButtonGroup
+                            variant="contained"
+                            aria-label="Basic button group"
+                        >
+                            <Button color="success">
+                                <GoogleIcon />
+                            </Button>
+                            <Button>
+                                <LinkedInIcon />
+                            </Button>
+                            <Button color="secondary">
+                                <GitHubIcon />
+                            </Button>
+                        </ButtonGroup>
+                    </Box>
+                </CardContent>
+            </Card>
         </>
     );
 }

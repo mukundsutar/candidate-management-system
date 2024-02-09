@@ -3,6 +3,10 @@ import "../css/profile.css";
 import { useAtom } from "jotai";
 import { candID } from "./CandidateList";
 import { NavLink } from "react-router-dom";
+import pfp from "../assets/pfp.jpg";
+import { Button } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 export default function CandidateProfile({ apiData }) {
     const [candidateId] = useAtom(candID);
@@ -126,21 +130,18 @@ export default function CandidateProfile({ apiData }) {
                 <div className="modify-buttons">
                     {/* edit record */}
                     <NavLink to={"/candidate/" + candidateId + "/edit"}>
-                        <button type="button">
-                            <i
-                                className="bi bi-pencil-fill"
-                                style={{ fontSize: 25 }}
-                            ></i>
-                        </button>
+                        <Button sx={{ mb: 1 }} variant="contained">
+                            <EditIcon />
+                        </Button>
                     </NavLink>
 
                     {/* delete record */}
-                    <button type="button">
-                        <i
-                            className="bi bi-trash-fill"
-                            style={{ fontSize: 25 }}
-                        ></i>
-                    </button>
+                    {/* edit record */}
+
+                    {/* delete record */}
+                    <Button variant="contained">
+                        <DeleteForeverIcon />
+                    </Button>
                 </div>
 
                 {/* personal info */}
@@ -149,11 +150,7 @@ export default function CandidateProfile({ apiData }) {
                     {candidate && candidate.profile_picture ? (
                         <img src={candidate.profile_picture} alt="" srcSet="" />
                     ) : (
-                        <img
-                            src="https://via.placeholder.com/600/92c952"
-                            alt=""
-                            srcSet=""
-                        />
+                        <img src={pfp} alt="" srcSet="" />
                     )}
 
                     {candidate && (
@@ -161,7 +158,10 @@ export default function CandidateProfile({ apiData }) {
                             <p>{candidate.name}</p>
                             <p>{candidate.email}</p>
                             <p>{candidate.gender}</p>
-                            <p>{displayList(candidate.hobbies)}</p>
+
+                            {/* <p> */}
+                            {displayList(candidate.hobbies)}
+                            {/* </p> */}
                         </div>
                     )}
                 </div>

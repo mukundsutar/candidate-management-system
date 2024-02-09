@@ -1,7 +1,7 @@
 .add-new {
     width: 50vw;
     height: auto;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -18,7 +18,7 @@
     margin: 5% 0px;
     margin-bottom: 0px;
     padding: 3% 10%;
-    background-color: bisque;
+    background-color: #beb7a4;
 }
 
 .add-new-personal {
@@ -80,8 +80,6 @@
     flex-direction: column;
 
     margin-bottom: 5%;
-
-    background-color: burlywood;
 }
 
 .add-new-experience-text p {
@@ -153,20 +151,13 @@
     margin: 1rem 0px;
 }
 
-.add-new-education
-/* .add-new-skill, */
-/* .add-new-experience */ {
-    /* min-height: 17.5em; */
-    /* height: 100%; */
-}
-
 .add-new-skill {
     padding: 3% 10%;
     margin: 5% 0px;
     margin-bottom: 0px;
     padding-top: 0px;
 
-    background-color: bisque;
+    background-color: #beb7a4;
 }
 
 .add-new-skill-text {

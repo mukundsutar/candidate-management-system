@@ -38,10 +38,12 @@ export default function HomePage({ newFlag, candEditFlag }) {
 
                 {newFlag ? (
                     <CandidateAddNew />
-                ) : candEditFlag ? (
-                    apiData && <CandidateEdit apiData={apiData} />
                 ) : (
                     apiData && <CandidateProfile apiData={apiData} />
+                )}
+
+                {newFlag == false && candEditFlag == true && apiData && (
+                    <CandidateEdit apiData={apiData} />
                 )}
             </div>
         </>

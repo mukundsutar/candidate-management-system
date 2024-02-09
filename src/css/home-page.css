@@ -5,13 +5,13 @@
     display: flex;
     flex-direction: row;
 
-    background-color: darksalmon;
+    background-color: #e5e5e5;
 }
 
 .cadidate-list {
     width: 50svw;
     height: auto;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 50px);
 
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     padding: 3%;
     padding-top: 0px;
 
-    background-color: aquamarine;
+    background-color: #beb7a4;
 }
 
 .profile {
@@ -32,7 +32,7 @@
     flex-direction: column;
     box-sizing: border-box;
 
-    background-color: aqua;
+    background-color: #beb7a4;
 }
 
 .list-header {
@@ -40,8 +40,8 @@
     top: 0;
 
     width: 100svw;
-    min-height: 100px;
-    max-height: 100px;
+    max-height: 50px;
+    min-height: 50px;
 
     display: flex;
     justify-content: space-between;
@@ -51,7 +51,7 @@
 
     padding: 0px 10%;
 
-    background-color: coral; /* Adjust as per your design */
+    background-color: #191716;
     z-index: 1;
 }
 
@@ -66,7 +66,8 @@
     margin-bottom: 5%;
     padding: 20px;
 
-    background-color: darkcyan;
+    background-color: #3d348b;
+    border-radius: 10px;
 }
 
 .list-item img {
@@ -82,6 +83,7 @@
     margin-left: 10%;
 
     text-transform: capitalize;
+    font-size: 30px;
 }
 
 .list-item-text p {
@@ -101,6 +103,8 @@
 
 .list-header .login-page-btn {
     width: 100px;
+    height: 40px;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
 .cadidate-list a {
@@ -112,4 +116,10 @@
 
 #add-btn-link {
     width: max-content;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+.list-name {
+    font-weight: bold;
+    text-decoration: underline;
 }

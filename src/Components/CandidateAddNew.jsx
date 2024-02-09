@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../css/add-new.css";
 import { Button, Divider } from "@mui/material";
+import pfp from "../assets/pfp.jpg";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 export default function CandidateAddNew() {
     const [selectedGender, setSelectedGender] = useState("");
@@ -46,7 +49,7 @@ export default function CandidateAddNew() {
                     institute: event.target.elements["collegeName"].value,
                     degree: event.target.elements["degreeName"].value,
                     percentage: event.target.elements["percentage"].value,
-                    pass_out_year: event.target.elements["year"].value,
+                    year: event.target.elements["year"].value,
                 },
             ],
             // skills
@@ -167,30 +170,20 @@ export default function CandidateAddNew() {
                 <div className="add-new">
                     <div className="modify-buttons">
                         {/* edit record */}
-                        <button type="button">
-                            <i
-                                className="bi bi-pencil-fill"
-                                style={{ fontSize: 25 }}
-                            ></i>
-                        </button>
+                        <Button sx={{ mb: 1 }} variant="contained">
+                            <EditIcon />
+                        </Button>
 
                         {/* delete record */}
-                        <button type="button">
-                            <i
-                                className="bi bi-trash-fill"
-                                style={{ fontSize: 25 }}
-                            ></i>
-                        </button>
+                        <Button variant="contained">
+                            <DeleteForeverIcon />
+                        </Button>
                     </div>
 
                     {/* personal info */}
                     <div className="add-new-ele add-new-personal">
                         {/* profile picture */}
-                        <img
-                            src="https://via.placeholder.com/600/92c952"
-                            alt=""
-                            srcSet=""
-                        />
+                        <img src={pfp} alt="" srcSet="" />
 
                         <div className="add-new-personal-text">
                             <input
@@ -275,13 +268,19 @@ export default function CandidateAddNew() {
                                     }
                                     placeholder="Year"
                                 />
-                                <button
+                                {/* <button
                                     className="education-delete"
                                     type="button"
                                     onClick={() => handleDeleteEducation(index)}
                                 >
                                     Delete
-                                </button>
+                                </button> */}
+                                <Button
+                                    variant="contained"
+                                    onClick={() => handleDeleteEducation(index)}
+                                >
+                                    Delete
+                                </Button>
                             </div>
                         ))}
                         <Button
@@ -289,6 +288,7 @@ export default function CandidateAddNew() {
                             className="education-add"
                             type="button"
                             onClick={() => handleAddEducation()}
+                            color="success"
                         >
                             Add
                         </Button>
@@ -316,19 +316,20 @@ export default function CandidateAddNew() {
                                     }
                                     placeholder="Experience"
                                 />
-                                <button
+                                {/* <button
                                     className="skill-delete"
                                     type="button"
                                     onClick={() => handleDeleteSkill(index)}
                                 >
                                     Delete
-                                </button>
-                                {/* <Button
+                                </button> */}
+                                <Button
+                                    sx={{ width: "20%" }}
                                     variant="contained"
-                                    onClick={handleDeleteSkill(index)}
+                                    onClick={() => handleDeleteSkill(index)}
                                 >
                                     Delete
-                                </Button> */}
+                                </Button>
                             </div>
                         ))}
                         <Button
@@ -336,20 +337,23 @@ export default function CandidateAddNew() {
                             className="skill-add"
                             type="button"
                             onClick={() => handleAddSkill()}
+                            color="success"
                         >
                             Add
                         </Button>
                     </div>
 
-                    
                     {/* experience */}
-                    <div className="add-new-ele add-new-education">
+                    <div className="add-new-ele add-new-experience">
                         {educations.map((education, index) => (
-                            <div className="add-new-education-text" key={index}>
+                            <div
+                                className="add-new-experience-text"
+                                key={index}
+                            >
                                 <input
                                     type="text"
-                                    name="collegeName"
-                                    value={education.institute}
+                                    name="companyName"
+                                    value={experiences.company}
                                     onChange={(event) =>
                                         handleEducationChange(index, event)
                                     }
@@ -357,39 +361,53 @@ export default function CandidateAddNew() {
                                 />
                                 <input
                                     type="text"
-                                    name="degreeName"
-                                    value={education.degree}
+                                    name="projectName"
+                                    value={experiences.project}
                                     onChange={(event) =>
                                         handleEducationChange(index, event)
                                     }
-                                    placeholder="Degree Name"
-                                />
-                                <input
-                                    type="number"
-                                    name="percentage"
-                                    value={education.percentage}
-                                    onChange={(event) =>
-                                        handleEducationChange(index, event)
-                                    }
-                                    placeholder="Percentage"
+                                    placeholder="Project Name"
                                 />
                                 <input
                                     type="text"
+                                    name="role"
+                                    value={experiences.role}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Role"
+                                />
+                                <input
+                                    type="number"
+                                    name="team"
+                                    value={experiences.teamSize}
+                                    onChange={(event) =>
+                                        handleEducationChange(index, event)
+                                    }
+                                    placeholder="Team Size"
+                                />
+                                <input
+                                    type="date"
                                     name="year"
-                                    value={education.year}
+                                    value={experiences.year}
                                     onChange={(event) =>
                                         handleEducationChange(index, event)
                                     }
                                     placeholder="Year"
                                 />
-                                <button
-                                    className="education-delete"
+                                {/* <button
+                                    className="experience-delete"
                                     type="button"
                                     onClick={() => handleDeleteEducation(index)}
                                 >
                                     Delete
-                                </button>
-                                {/* <Divider/> */}
+                                </button> */}
+                                <Button
+                                    variant="contained"
+                                    onClick={() => handleDeleteEducation(index)}
+                                >
+                                    Delete
+                                </Button>
                             </div>
                         ))}
                         <Button
@@ -397,6 +415,7 @@ export default function CandidateAddNew() {
                             className="education-add"
                             type="button"
                             onClick={() => handleAddEducation()}
+                            color="success"
                         >
                             Add
                         </Button>
