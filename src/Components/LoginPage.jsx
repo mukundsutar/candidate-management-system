@@ -23,14 +23,14 @@ export default function LoginPage() {
         password: "",
     });
 
+    const userList = [
+        { userID: "mukund", password: "123" },
+        { userID: "user", password: "pass" },
+        { userID: "123", password: "123" },
+    ];
+
     const handleSubmit = (event) => {
         event.preventDefault(); // Prevent default form submission behavior
-
-        const userList = [
-            { userID: "mukund", password: "123" },
-            { userID: "user", password: "pass" },
-            { userID: "123", password: "123" },
-        ];
 
         const user = userList.find(
             (user) =>
@@ -43,6 +43,19 @@ export default function LoginPage() {
             navigate("/candidate");
         } else {
             console.log("Invalid userID or password");
+        }
+    };
+
+    const handleRegister = (event) => {
+        event.preventDefault();
+        const isUserExists = userList.some(
+            (user) => user.userID === formData.userID
+        );
+        if (!isUserExists) {
+            userList.push(formData);
+            console.log("User registered successfully");
+        } else {
+            console.log("User already exists");
         }
     };
 
@@ -98,7 +111,9 @@ export default function LoginPage() {
                             aria-label="Basic button group"
                         >
                             <Button onClick={handleSubmit}>Submit</Button>
-                            <Button color="error">Register</Button>
+                            <Button color="error" onClick={handleRegister}>
+                                Register
+                            </Button>
                         </ButtonGroup>
                     </Box>
 

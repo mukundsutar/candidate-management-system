@@ -27,10 +27,6 @@ export default function HomePage({ newFlag, candEditFlag }) {
         fetchAPI();
     }, []);
 
-    useEffect(() => {
-        console.log(apiData);
-    }, [apiData]);
-
     return (
         <>
             <Header apiData={apiData} />
