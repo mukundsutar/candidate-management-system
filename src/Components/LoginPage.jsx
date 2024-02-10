@@ -17,6 +17,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 
 export default function LoginPage() {
     const navigate = useNavigate();
+    const [feedback, setFeedback] = useState("");
 
     const [formData, setFormData] = useState({
         userID: "",
@@ -53,8 +54,10 @@ export default function LoginPage() {
         );
         if (!isUserExists) {
             userList.push(formData);
+            setFeedback("User registered successfully");
             console.log("User registered successfully");
         } else {
+            setFeedback("User already exists");
             console.log("User already exists");
         }
     };
@@ -99,6 +102,19 @@ export default function LoginPage() {
                         />
                     </form>
 
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignContent: "center",
+                            m: 2,
+                            mb: 0,
+                        }}
+                    >
+                        {feedback}
+                    </Typography>
+
                     <Box
                         sx={{
                             display: "flex",
@@ -128,7 +144,7 @@ export default function LoginPage() {
                             variant="contained"
                             aria-label="Basic button group"
                         >
-                            <Button color="success">
+                            <Button color="success" >
                                 <GoogleIcon />
                             </Button>
                             <Button>
