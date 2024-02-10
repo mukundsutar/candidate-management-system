@@ -3,7 +3,7 @@ import "../css/profile.css";
 import { useAtom } from "jotai";
 import { candID } from "./CandidateList";
 import { NavLink } from "react-router-dom";
-import pfp from "../assets/pfp.jpg";
+import pfp from "../assets/person-bounding-box.svg";
 import { Button } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
