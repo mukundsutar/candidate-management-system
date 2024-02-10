@@ -103,7 +103,7 @@ export default function LoginPage() {
                     </form>
 
                     <Typography
-                        variant="h6"
+                        variant="h7"
                         sx={{
                             display: "flex",
                             justifyContent: "center",
